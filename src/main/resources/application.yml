@@ -1,0 +1,51 @@
+server:
+  port: 9090
+
+logging:
+  level:
+#        org.springframework.web: ERROR
+    vn.com.ntqsolution.mate: DEBUG
+  file: /opt/log/API-server.log
+
+
+spring:
+  application:
+    name: mate-service
+
+  data:
+    rest:
+      base-path: 'mate-api'
+
+application:
+  security:
+    jwt:
+      secretKey: mate-service-jwt-%#&@^%$(!%#&@%*^@&*#%^(&@#(.*^&*$#^&*$#*&^$&*T$&*#%^&*$^#&*@
+      tokenValidityMilliseconds: 86400000
+      rememberMeTokenValiditySeconds: 25920000000
+
+  database:
+    mongodb:
+      primary:
+        host: localhost
+        port: 27017
+        connectionPerHost: 1500
+        user: myUserAdmin
+        password: abc123
+        authenticationDatabase: admin
+      secondary:
+        host: localhost
+        port: 27017
+        connectionPerHost: 1500
+        user: myUserAdmin
+        password: abc123
+        authenticationDatabase: admin
+
+      db-list:
+        userdb:
+          host: localhost
+          port: 27017
+          database: userdb
+        settingdb:
+          host: 192.168.2.46
+          port: 27017
+          database: settingdb
